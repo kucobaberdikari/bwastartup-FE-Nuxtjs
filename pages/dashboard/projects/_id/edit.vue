@@ -17,7 +17,13 @@
               Edit Campaign "{{ campaign.data.name }}"
             </h3>
           </div>
-          <div class="w-1/4 text-right">
+          <div class="w-1/4 justify-between text-right">
+            <button
+              @click="cancel"
+              class="bg-gray-button hover:bg-gray-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
+            >
+              Cancel
+            </button>
             <button
               @click="save"
               class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
@@ -118,6 +124,9 @@
       return { campaign }
     },
     methods: {
+      async cancel (){
+        this.$router.back()
+      },
       async save() {
         try {
           let response = await this.$axios.$put(

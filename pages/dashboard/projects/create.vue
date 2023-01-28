@@ -17,6 +17,12 @@
           </div>
           <div class="w-1/4 text-right">
             <button
+              @click="cancel"
+              class="bg-gray-button hover:bg-gray-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
+            >
+              Cancel
+            </button>
+            <button
               @click="save"
               class="bg-green-button hover:bg-green-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
             >
@@ -123,6 +129,9 @@ export default {
     }
   },
   methods: {
+    async cancel (){
+        this.$router.push({name: 'dashboard'})
+      },
     async save() {
       try {
         let response = await this.$axios.$post(
