@@ -1,16 +1,12 @@
 <template>
     <header class="flex items-center">
-        <div style="height: 54px" class="pr-5">
-            <img src="/logo.svg" alt="logo" class="h-full" />
+        <div style="height: 54px" class="pr-5 ">
+          <nuxt-link class="rounded-full border-none hover:border-gray-400"
+          to="/">
+            <img src="/logo.svg" alt="logo" class="h-full " />
+          </nuxt-link>
         </div>
         <ul class="flex items-center">
-            <li>
-            <nuxt-link
-                class="text-white hover:text-teal-500 text-lg px-4 py-3"
-                to="/"
-                >Home</nuxt-link
-            >
-            </li>
             <li>
             <nuxt-link
                 class="text-white hover:text-teal-500 text-lg px-4 py-3"

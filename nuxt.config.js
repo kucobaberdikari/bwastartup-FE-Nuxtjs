@@ -5,6 +5,12 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  loadingIndicator: {
+    // name: 'chasing-dots',
+    color: 'green',
+    background: 'white'
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'bwastartup-fe',
@@ -16,14 +22,14 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { 
+      {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap' },
       {
-        rel:'stylesheet', 
-        href:'https://pro.fontawesome.com/releases/v5.10.0/css/all.css', 
-        integrity:"sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p", 
-        crossorigin:"anonymous"}, 
+        rel:'stylesheet',
+        href:'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
+        integrity:"sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p",
+        crossorigin:"anonymous"},
     ],
   },
 
@@ -80,7 +86,7 @@ export default {
       },
     },
   },
-  
+
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
