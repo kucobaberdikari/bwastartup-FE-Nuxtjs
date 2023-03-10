@@ -102,6 +102,43 @@
                       v-model="campaign.description"
                     ></textarea>
                   </div>
+                  <div class="w-full px-3 flex justify-between items-center mt-4">
+                    <div class="w-2/4 mr-6">
+                      <label
+                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                      >
+                        Campaign image
+                      </label>
+                    </div>
+                    <div class="w-2/4 text-right">
+                      <input
+                        type="file"
+                        ref="file"
+                        @change="previewMultiImage"
+                        class="border p-1 rounded overflow-hidden"
+                        multiple="multiple"
+                        accept="image/*"
+                      />
+                    </div>
+                  </div>
+                 <div class="block mb-2 mt-3">
+                  <div class="grid grid-cols-4 gap-4 -mx-2">
+                    <template v-if="preview_list.length">
+                      <div
+                        class="relative w-full bg-white m-2 p-2 border border-gray-400 rounded"
+                        v-for="item, index in preview_list" :key="index"
+                      >
+                        <figure class="item-thumbnail">
+                          <img
+                            :src="item"
+                            alt=""
+                            class="rounded w-full"
+                          />
+                        </figure>
+                      </div>
+                    </template>
+                  </div>
+                 </div>
                 </div>
               </form>
             </div>
@@ -123,9 +160,12 @@ export default {
         name: '',
         short_description: '',
         description: '',
-        // goal_amount: 0,
         perks: '',
+        preview_list: [],
+        // image_list: [],
       },
+      preview_list: [],
+      image_list: [],
     }
   },
   methods: {
@@ -145,6 +185,22 @@ export default {
         console.log(response)
       } catch (err) {
         console.log(err)
+      }
+    },
+    previewMultiImage: function(event) {
+      var input = event.target;
+      var count = input.files.length;
+      var index = 0;
+      if (input.files) {
+        while(count --) {
+          var reader = new FileReader();
+          reader.onload = (e) => {
+            this.preview_list.push(e.target.result);
+          }
+          this.image_list.push(input.files[index]);
+          reader.readAsDataURL(input.files[index]);
+          index ++;
+        }
       }
     },
   },

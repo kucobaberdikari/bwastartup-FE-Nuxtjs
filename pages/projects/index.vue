@@ -83,5 +83,10 @@
 </template>
 
 <script>
-
+export default {
+  async asyncData({ $axios }) {
+    const campaigns = await $axios.$get('/api/v1/campaigns')
+    return { campaigns }
+  },
+}
 </script>

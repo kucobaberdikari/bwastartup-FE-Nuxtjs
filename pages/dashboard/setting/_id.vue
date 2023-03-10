@@ -102,19 +102,6 @@
                     <label
                       class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3"
                     >
-                      Ocucpation
-                    </label>
-                    <input
-                      class="appearance-none block w-full rounded-lg bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                      type="text"
-                      placeholder="Your occupation"
-                      v-model="user.data.occupation"
-                    />
-                  </div>
-                  <div class="w-full px-3">
-                    <label
-                      class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3"
-                    >
                       description
                     </label>
                     <!-- <input
@@ -153,7 +140,7 @@ export default {
       }
     },
   async asyncData({ $axios, params }) {
-    const user = await $axios.$get('/api/v1/user/edit/' + params.id)
+    const user = await $axios.$get('/api/v1/user/detail/' + params.id)
     return { user }
   },
   methods: {

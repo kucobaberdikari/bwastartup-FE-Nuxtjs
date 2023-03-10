@@ -11,21 +11,24 @@
             <nuxt-link
                 class="text-white hover:text-teal-500 text-lg px-4 py-3"
                 to="#"
-                >Project</nuxt-link
+                >Project
+            </nuxt-link
             >
             </li>
             <li>
             <nuxt-link
                 class="text-white hover:text-teal-500 text-lg px-4 py-3"
                 to="#"
-                >Features</nuxt-link
+                >Features
+            </nuxt-link
             >
             </li>
             <li>
             <nuxt-link
                 class="text-white hover:text-teal-500 text-lg px-4 py-3"
                 to="#"
-                >Success Stories</nuxt-link
+                >Success Stories
+            </nuxt-link
             >
             </li>
         </ul>

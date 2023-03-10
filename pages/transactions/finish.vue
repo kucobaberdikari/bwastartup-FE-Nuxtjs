@@ -10,6 +10,7 @@
         <br />
         into company's account
       </p>
+
       <div class="mb-4 mt-6">
         <div class="mb-3">
           <button

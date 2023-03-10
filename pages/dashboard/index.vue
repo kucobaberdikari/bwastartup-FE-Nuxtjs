@@ -34,45 +34,54 @@
       </div>
       <hr />
       <div class="block mb-2">
-        <div
-          class="w-full lg:max-w-full lg:flex mb-4"
-          v-for="campaign in campaigns.data"
-          :key="campaign.id"
-        >
+        <div class="grid grid-cols-2 gap-4">
           <div
-            class="border h-48 lg:h-auto lg:w-64 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-            :style="
-              'background-color: #bbb; background-position: center; background-image: url(\'' +
-              $axios.defaults.baseURL +
-              '/' +
-              campaign.image_url +
-              '\')'
-            "
-          ></div>
-          <nuxt-link
-            :to="'/dashboard/projects/' + campaign.id"
-            class="w-full border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-8 flex flex-col justify-between leading-normal"
+            class="w-full lg:max-w-full lg:flex "
+            v-for="campaign in campaigns.data"
+            :key="campaign.id"
           >
-            <div class="mb-8">
-              <div class="text-gray-900 font-bold text-xl mb-1">
-                {{ campaign.name }}
+            <div
+              class="border h-48 lg:h-auto lg:w-64 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+              :style="
+                'background-color: #bbb; background-position: center; background-image: url(\'' +
+                $axios.defaults.baseURL +
+                '/' +
+                campaign.image_url +
+                '\')'
+              "
+            ></div>
+            <div
+
+              class="w-full border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-8 flex flex-col justify-between leading-normal"
+            >
+              <div class="mb-8">
+                <div class="text-gray-900 font-bold text-xl mb-1">
+                  {{ campaign.name }}
+                </div>
+                <p class="text-sm text-gray-600 flex items-center mb-2">
+                  Rp.
+                  {{ new Intl.NumberFormat().format(campaign.goal_amount) }}
+                  &middot;
+                  {{ (campaign.current_amount / campaign.goal_amount) * 100 }}%
+                </p>
+                <p class="text-gray-700 text-base">
+                  {{ campaign.short_description }}
+                </p>
               </div>
-              <p class="text-sm text-gray-600 flex items-center mb-2">
-                Rp.
-                {{ new Intl.NumberFormat().format(campaign.goal_amount) }}
-                &middot;
-                {{ (campaign.current_amount / campaign.goal_amount) * 100 }}%
-              </p>
-              <p class="text-gray-700 text-base">
-                {{ campaign.short_description }}
-              </p>
+              <div class="flex items-center">
+                <nuxt-link
+                  :to="'/dashboard/projects/' + campaign.id"
+                  class="bg-green-button text-white py-2 px-4 rounded">
+                  Detail
+                </nuxt-link>
+                <nuxt-link
+                  class="bg-purple-button text-white py-2  mx-3 px-4 rounded"
+                  :to="'/dashboard/projects/' + campaign.id+'/edit'">
+                  Edit
+                </nuxt-link>
+              </div>
             </div>
-            <div class="flex items-center">
-              <button class="bg-green-button text-white py-2 px-4 rounded">
-                Detail
-              </button>
-            </div>
-          </nuxt-link>
+          </div>
         </div>
       </div>
     </section>
@@ -94,6 +103,11 @@ export default {
 }
 </script>
 
+<!-- <style scoped>
+img.max-w-16{
+max-width: 16px;
+}
+</style> -->
 <!-- <style lang="scss">
 .dashboard-header {
   background-image: url('/auth-background.svg');

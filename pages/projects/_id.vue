@@ -89,7 +89,35 @@
                 Sign in to Fund
               </button>
             </template>
-          </div>
+            <button
+                
+                class="mt-3 button-cta block w-full border bg-white hover:bg-green-button text-dark 
+                font-medium capitalize border-gray-400 px-6 py-3 text-md rounded-full hover:text-white"
+                v-on:click="toggleModalShare()"
+              > <i class="fal fa-share-alt mr-3 hover:text-white"></i>
+                share campaign
+              </button>
+            <!-- <div class="container mt-5">
+              <h4 class="text-gray w-full capitalize font-semibold">share this campaign</h4>
+              <div class="flex justify-between items-center mt-3">
+                <div class="w-1/5 px-1 items-center">
+                  <i class="fab fa-facebook-square text-[2rem] text-blue-900 border-white"></i>
+                </div>
+                <div class="w-1/5 px-1 items-center">
+                  <i class="fab fa-twitter-square text-[2rem] text-blue-600"></i>
+                </div>
+                <div class="w-1/5 px-1 items-center">
+                  <i class="fab fa-whatsapp-square text-[2rem] text-green-500"></i>
+                </div>
+                <div class="w-1/5 px-1 items-center">
+                  <i class="fab fa-linkedin text-blue-400 text-[2rem] "></i>
+                </div>
+                <div class="w-1/5 px-1 items-center">
+                  <i class="fas fa-copy text-gray-500 text-[2rem] "></i>
+                </div>
+              </div>
+            </div> -->
+          </div>          
         </div>
       </div>
     </section>
@@ -128,18 +156,115 @@
               Rp {{ new Intl.NumberFormat().format(campaign.data.goal_amount) }}
             </div>
           </div>
-
-          <p class="font-light text-xl mb-5">
-            {{ campaign.data.description }}
-          </p>
         </div>
         <div class="w-1/4 hidden md:block"></div>
       </div>
     </section>
-    <div class="cta-clip -mt-20"></div>
-    <CallToAction />
-    <Footer />
+    <section class="container mx-auto pt-3">
+      <div class="flex flex-wrap">
+    <div class="w-full">
+      <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+        <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+          <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(1)" v-bind:class="{'text-orange-button bg-white': openTab !== 1, 'text-white bg-orange-button': openTab === 1}">
+            tentang campaign
+          </a>
+        </li>
+        <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+          <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(2)" v-bind:class="{'text-orange-button bg-white': openTab !== 2, 'text-white bg-orange-button': openTab === 2}">
+            kategori
+          </a>
+        </li>
+        <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+          <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(3)" v-bind:class="{'text-orange-button bg-white': openTab !== 3, 'text-white bg-orange-button': openTab === 3}">
+            lokasi
+          </a>
+        </li>
+      </ul>
+      <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+        <div class="px-4 py-5 flex-auto">
+          <div class="tab-content tab-space">
+            <div v-bind:class="{'hidden': openTab !== 1, 'block': openTab === 1}">
+              <p>
+                {{ campaign.data.description }}
+              </p>
+            </div>
+            <div v-bind:class="{'hidden': openTab !== 2, 'block': openTab === 2}">
+              <p>
+                Completely synergize resource taxing relationships via
+                premier niche markets. Professionally cultivate one-to-one
+                customer service with robust ideas.
+                <br />
+                <br />
+                Dynamically innovate resource-leveling customer service for
+                state of the art customer service.
+              </p>
+            </div>
+            <div v-bind:class="{'hidden': openTab !== 3, 'block': openTab === 3}">
+              <p>
+                Efficiently unleash cross-media information without
+                cross-media value. Quickly maximize timely deliverables for
+                real-time schemas.
+                <br />
+                <br />
+                Dramatically maintain clicks-and-mortar solutions
+                without functional solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+    </section>
+    <!-- <div class="cta-clip -mt-20"></div> -->
+    <Footer />
+
+    <div v-if="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+      <div class="relative w-auto my-6 mx-auto max-w-6xl">
+        <!--content-->
+        <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+          <!--header-->
+          <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+            <h3 class="text-3xl font-semibold">
+              Modal Title
+            </h3>
+            <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" v-on:click="toggleModal()">
+              <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                ×
+              </span>
+            </button>
+          </div>
+          <!--body-->
+          <div class="relative p-6 flex-auto">
+            <p class="my-4 text-slate-500 text-lg leading-relaxed">
+              I always felt like I could do anything. That’s the main
+              thing people are controlled by! Thoughts- their perception
+              of themselves! They're slowed down by their perception of
+              themselves. If you're taught you can’t do anything, you
+              won’t do anything. I was taught I could do everything.
+            </p>
+          </div>
+          <!--footer-->
+          <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+            <button class="text-red-500 bg-transparent border border-solid border-red-500 
+              hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm 
+              px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
+              type="button" v-on:click="toggleModal()">
+              Close
+            </button>
+            <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 
+              text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all 
+              duration-150" type="button" v-on:click="toggleModal()">
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
 </template>
 
 <script>
@@ -155,6 +280,8 @@ export default {
         amount: 0,
         campaign_id: Number.parseInt(this.$route.params.id),
       },
+      openTab: 1,
+      showModal: false,
     }
   },
   methods: {
@@ -165,6 +292,7 @@ export default {
           this.transaction
         )
         window.location = response.data.payment_url
+        window.open = response.data.payment_url
         console.log(response)
       } catch (err) {
         console.log(err)
@@ -173,6 +301,12 @@ export default {
     changeImage(url) {
       this.default_image = url
     },
+    toggleTabs: function(tabNumber){
+      this.openTab = tabNumber
+    },
+    toggleModalShare: function(){
+      this.showModal = !this.showModal;
+    }
   },
   mounted() {
     this.default_image =

@@ -9,7 +9,7 @@
         <div class="flex mb-6">
             <div class="w-3/4 mr-6">
               <h2 class="text-4xl text-gray-900 mb-2 font-medium capitalize">{{ user.data.name }}  campaigns</h2>
-              <div class="grid grid-cols-4 gap-4 mt-3">
+              <div class="grid grid-cols-3 gap-4 mt-3">
                 <div
                   v-for="campaign in campaigns.data"
                   :key="campaign.id"
@@ -86,6 +86,9 @@
                     <div class="w-3/4 ml-5 mt-1">
                       <div class="font-semibold text-xl text-gray-800 capitalize">
                         {{ user.data.name }}
+                      </div>
+                      <div class="text-md text-gray-800 mt-1">
+                        {{ user.data.occupation }}
                       </div>
                     </div>
                   </div>

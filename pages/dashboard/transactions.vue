@@ -51,7 +51,9 @@
           >
             <div>
               <div class="text-gray-900 font-bold text-xl mb-1">
-                {{ transaction.campaign.name }}
+                <nuxt-link :to="'/projects/' + transaction.campaign.id" >
+                  {{ transaction.campaign.name }}
+                </nuxt-link>
               </div>
               <p class="text-sm text-gray-600 flex items-center mb-2">
                 Rp.
