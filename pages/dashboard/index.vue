@@ -62,7 +62,7 @@
                   Rp.
                   {{ new Intl.NumberFormat().format(campaign.goal_amount) }}
                   &middot;
-                  {{ (campaign.current_amount / campaign.goal_amount) * 100 }}%
+                  {{ ((campaign.current_amount / campaign.goal_amount) * 100).toFixed(0) }}%
                 </p>
                 <p class="text-gray-700 text-base">
                   {{ campaign.short_description }}

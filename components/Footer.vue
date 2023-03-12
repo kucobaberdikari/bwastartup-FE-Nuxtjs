@@ -20,7 +20,11 @@
                 <div class="sm:w-1/4 h-auto">
                     <div class="mb-8 font-bold">Investor</div>
                     <ul class="font-light">
-                    <li class="mb-3">My Account</li>
+                    <li class="mb-3">
+                        <nuxt-link to="/dashboard">
+                            My Account
+                        </nuxt-link>
+                    </li>
                     <li class="mb-3">Top Startups</li>
                     <li class="mb-3">How-to Tutorials</li>
                     <li class="mb-3">Withdrawl</li>

@@ -10,7 +10,7 @@
         <div class="w-3/4 mr-6">
           <div class="bg-white p-3 mb-3 border border-gray-400 rounded-20">
             <figure class="item-image">
-              <img :src="default_image" alt="" class="rounded-20 w-full" />
+              <img :src="default_image" alt="main-image" class="rounded-20 w-full" />
             </figure>
           </div>
           <div class="flex -mx-2">
@@ -25,7 +25,7 @@
                   @click="
                     changeImage($axios.defaults.baseURL + '/' + image.image_url)
                   "
-                  alt=""
+                  alt="campaign-images"
                   class="rounded-20 w-full"
                 />
               </figure>
@@ -90,10 +90,9 @@
               </button>
             </template>
             <button
-                
                 class="mt-3 button-cta block w-full border bg-white hover:bg-green-button text-dark 
                 font-medium capitalize border-gray-400 px-6 py-3 text-md rounded-full hover:text-white"
-                v-on:click="toggleModalShare()"
+                @click="showModal = true"
               > <i class="fal fa-share-alt mr-3 hover:text-white"></i>
                 share campaign
               </button>
@@ -138,7 +137,7 @@
               <div
                 :style="
                   'width: ' +
-                  (campaign.current_amount / campaign.goal_amount) * 100 +
+                  (campaign.data.current_amount / campaign.data.goal_amount) * 100 +
                   '%'
                 "
                 class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-progress progress-striped"
@@ -148,8 +147,8 @@
           <div class="flex progress-info mb-6">
             <div class="text-2xl">
               {{
-                (campaign.data.current_amount / campaign.data.goal_amount) *
-                100
+               ( (campaign.data.current_amount / campaign.data.goal_amount) *
+                100).toFixed(0)
               }}%
             </div>
             <div class="ml-auto font-semibold text-2xl">
@@ -166,7 +165,7 @@
       <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
         <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
           <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(1)" v-bind:class="{'text-orange-button bg-white': openTab !== 1, 'text-white bg-orange-button': openTab === 1}">
-            tentang campaign
+            tentang
           </a>
         </li>
         <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -219,7 +218,7 @@
     <!-- <div class="cta-clip -mt-20"></div> -->
     <Footer />
 
-    <div v-if="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    <div v-if="showModal" name="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
       <div class="relative w-auto my-6 mx-auto max-w-6xl">
         <!--content-->
         <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
@@ -228,34 +227,37 @@
             <h3 class="text-3xl font-semibold">
               Modal Title
             </h3>
-            <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" v-on:click="toggleModal()">
-              <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                ×
-              </span>
+            <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" v-if="showModal" @click="showModal = false">
+                <i class="fal fa-times text-black"></i>
             </button>
           </div>
           <!--body-->
           <div class="relative p-6 flex-auto">
-            <p class="my-4 text-slate-500 text-lg leading-relaxed">
-              I always felt like I could do anything. That’s the main
-              thing people are controlled by! Thoughts- their perception
-              of themselves! They're slowed down by their perception of
-              themselves. If you're taught you can’t do anything, you
-              won’t do anything. I was taught I could do everything.
-            </p>
+            <div class="flex justify-between items-center mt-3">
+                <div class="w-1/5 px-1 items-center">
+                  <i class="fab fa-facebook-square text-[2rem] text-blue-900 border-white"></i>
+                </div>
+                <div class="w-1/5 px-1 items-center">
+                  <i class="fab fa-twitter-square text-[2rem] text-blue-600"></i>
+                </div>
+                <div class="w-1/5 px-1 items-center">
+                  <i class="fab fa-whatsapp-square text-[2rem] text-green-500"></i>
+                </div>
+                <div class="w-1/5 px-1 items-center">
+                  <i class="fab fa-linkedin text-blue-400 text-[2rem] "></i>
+                </div>
+                <div class="w-1/5 px-1 items-center">
+                  <i class="fas fa-copy text-gray-500 text-[2rem] "></i>
+                </div>
+              </div>
           </div>
           <!--footer-->
           <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
             <button class="text-red-500 bg-transparent border border-solid border-red-500 
               hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm 
               px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
-              type="button" v-on:click="toggleModal()">
+              type="button" v-if="showModal" @click="showModal = false">
               Close
-            </button>
-            <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 
-              text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all 
-              duration-150" type="button" v-on:click="toggleModal()">
-              Save Changes
             </button>
           </div>
         </div>
@@ -304,9 +306,6 @@ export default {
     toggleTabs: function(tabNumber){
       this.openTab = tabNumber
     },
-    toggleModalShare: function(){
-      this.showModal = !this.showModal;
-    }
   },
   mounted() {
     this.default_image =
