@@ -1,6 +1,6 @@
 <template>
-    <header class="flex items-center">
-        <div style="height: 54px" class="pr-5 ">
+    <header class="flex items-center ">
+        <div style="height: 54px" class="pr-5 sm:pl-3">
           <nuxt-link class="rounded-full border-none hover:border-gray-400"
           to="/">
             <img src="/logo.svg" alt="logo" class="h-full " />

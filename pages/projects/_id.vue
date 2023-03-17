@@ -10,7 +10,7 @@
         <div class="w-3/4 mr-6">
           <div class="bg-white p-3 mb-3 border border-gray-400 rounded-20">
             <figure class="item-image">
-              <img :src="default_image" alt="main-image" class="rounded-20 w-full" />
+              <img :src="default_image" alt="main-image" class="rounded-20 w-full max-w-4xl max-h-4xl" />
             </figure>
           </div>
           <div class="flex -mx-2">
@@ -93,6 +93,7 @@
                 class="mt-3 button-cta block w-full border bg-white hover:bg-green-button text-dark 
                 font-medium capitalize border-gray-400 px-6 py-3 text-md rounded-full hover:text-white"
                 @click="showModal = true"
+                data-modal-target="large-modal" data-modal-toggle="large-modal"
               > <i class="fal fa-share-alt mr-3 hover:text-white"></i>
                 share campaign
               </button>
@@ -161,78 +162,76 @@
     </section>
     <section class="container mx-auto pt-3">
       <div class="flex flex-wrap">
-    <div class="w-full">
-      <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
-        <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-          <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(1)" v-bind:class="{'text-orange-button bg-white': openTab !== 1, 'text-white bg-orange-button': openTab === 1}">
-            tentang
-          </a>
-        </li>
-        <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-          <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(2)" v-bind:class="{'text-orange-button bg-white': openTab !== 2, 'text-white bg-orange-button': openTab === 2}">
-            kategori
-          </a>
-        </li>
-        <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-          <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(3)" v-bind:class="{'text-orange-button bg-white': openTab !== 3, 'text-white bg-orange-button': openTab === 3}">
-            lokasi
-          </a>
-        </li>
-      </ul>
-      <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
-        <div class="px-4 py-5 flex-auto">
-          <div class="tab-content tab-space">
-            <div v-bind:class="{'hidden': openTab !== 1, 'block': openTab === 1}">
-              <p>
-                {{ campaign.data.description }}
-              </p>
-            </div>
-            <div v-bind:class="{'hidden': openTab !== 2, 'block': openTab === 2}">
-              <p>
-                Completely synergize resource taxing relationships via
-                premier niche markets. Professionally cultivate one-to-one
-                customer service with robust ideas.
-                <br />
-                <br />
-                Dynamically innovate resource-leveling customer service for
-                state of the art customer service.
-              </p>
-            </div>
-            <div v-bind:class="{'hidden': openTab !== 3, 'block': openTab === 3}">
-              <p>
-                Efficiently unleash cross-media information without
-                cross-media value. Quickly maximize timely deliverables for
-                real-time schemas.
-                <br />
-                <br />
-                Dramatically maintain clicks-and-mortar solutions
-                without functional solutions.
-              </p>
+        <div class="w-full">
+          <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(1)" v-bind:class="{'text-orange-button bg-white': openTab !== 1, 'text-white bg-orange-button': openTab === 1}">
+                tentang
+              </a>
+            </li>
+            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(2)" v-bind:class="{'text-orange-button bg-white': openTab !== 2, 'text-white bg-orange-button': openTab === 2}">
+                kategori
+              </a>
+            </li>
+            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+              <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(3)" v-bind:class="{'text-orange-button bg-white': openTab !== 3, 'text-white bg-orange-button': openTab === 3}">
+                lokasi
+              </a>
+            </li>
+          </ul>
+          <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+            <div class="px-4 py-5 flex-auto">
+              <div class="tab-content tab-space">
+                <div v-bind:class="{'hidden': openTab !== 1, 'block': openTab === 1}">
+                  <p>
+                    {{ campaign.data.description }}
+                  </p>
+                </div>
+                <div v-bind:class="{'hidden': openTab !== 2, 'block': openTab === 2}">
+                  <p>
+                    Completely synergize resource taxing relationships via
+                    premier niche markets. Professionally cultivate one-to-one
+                    customer service with robust ideas.
+                    <br />
+                    <br />
+                    Dynamically innovate resource-leveling customer service for
+                    state of the art customer service.
+                  </p>
+                </div>
+                <div v-bind:class="{'hidden': openTab !== 3, 'block': openTab === 3}">
+                  <p>
+                    Efficiently unleash cross-media information without
+                    cross-media value. Quickly maximize timely deliverables for
+                    real-time schemas.
+                    <br />
+                    <br />
+                    Dramatically maintain clicks-and-mortar solutions
+                    without functional solutions.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
     </section>
     <!-- <div class="cta-clip -mt-20"></div> -->
     <Footer />
 
-    <div v-if="showModal" name="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    <div v-if="showModal" data-modal-target="large-modal" data-modal-toggle="large-modal" name="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
       <div class="relative w-auto my-6 mx-auto max-w-6xl">
         <!--content-->
         <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
           <!--header-->
-          <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-            <h3 class="text-3xl font-semibold">
-              Modal Title
-            </h3>
+          <div class="flex items-end justify-between p-2 rounded-t">
+
             <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" v-if="showModal" @click="showModal = false">
                 <i class="fal fa-times text-black"></i>
             </button>
           </div>
           <!--body-->
-          <div class="relative p-6 flex-auto">
+          <div class="relative p-4 flex-auto">
             <div class="flex justify-between items-center mt-3">
                 <div class="w-1/5 px-1 items-center">
                   <i class="fab fa-facebook-square text-[2rem] text-blue-900 border-white"></i>
@@ -252,14 +251,14 @@
               </div>
           </div>
           <!--footer-->
-          <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+          <!-- <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
             <button class="text-red-500 bg-transparent border border-solid border-red-500 
               hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm 
               px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
               type="button" v-if="showModal" @click="showModal = false">
               Close
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
