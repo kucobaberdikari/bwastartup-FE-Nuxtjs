@@ -3,14 +3,14 @@
         <div class="container mx-auto">
             <div class="sm:flex mb-4">
                 <div class="sm:w-1/2 sm:mt-0 mt-8 h-auto sm:ml-3">
-                    <img src="/logo-footer.svg" alt="" class="mb-3" />
-                    <p class="font-light">
+                    <img src="/logo-footer.svg" alt="" class="mb-3 sm:w-52" />
+                    <p class="font-light sm:text-xs lg:text-base">
                     Helps people execute their <br />bright ideas
                     </p>
                 </div>
                 <div class="sm:w-1/4 h-auto">
                     <div class="mb-8 font-bold">Explore</div>
-                    <ul class="font-light">
+                    <ul class="font-light sm:text-xs lg:text-base">
                     <li class="mb-3">Our Services</li>
                     <li class="mb-3">Equity System</li>
                     <li class="mb-3">Refund</li>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="sm:w-1/4 h-auto">
                     <div class="mb-8 font-bold">Investor</div>
-                    <ul class="font-light">
+                    <ul class="font-light sm:text-xs lg:text-base">
                     <li class="mb-3">
                         <nuxt-link to="/dashboard">
                             My Account
@@ -32,7 +32,7 @@
                 </div>
                 <div class="sm:w-1/4 h-auto">
                     <div class="mb-8 font-bold">Office</div>
-                    <ul class="font-light">
+                    <ul class="font-light sm:text-xs lg:text-base">
                     <li class="mb-3">+021 2208 1996</li>
                     <li class="mb-3">KBP, Bandung</li>
                     <li class="mb-3">No.12 (Backer)</li>

@@ -33,6 +33,10 @@ export default {
         href:'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
         integrity:"sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p",
         crossorigin:"anonymous"},
+      // { 
+      //     rel:'stylesheet',
+      //    href:'https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css' 
+      // }
     ],
   },
 

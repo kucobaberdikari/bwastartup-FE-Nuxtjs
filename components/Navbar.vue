@@ -1,6 +1,6 @@
 <template>
     <header class="flex items-center ">
-        <div style="height: 54px" class="pr-5 sm:pl-3">
+        <div style="height:54px" class="md:pr-5 sm:pl-3 sm:pr-3">
           <nuxt-link class="rounded-full border-none hover:border-gray-400"
           to="/">
             <img src="/logo.svg" alt="logo" class="h-full " />
@@ -9,23 +9,23 @@
         <ul class="flex items-center">
             <li>
             <nuxt-link
-                class="text-white hover:text-teal-500 text-lg px-4 py-3"
-                to="#"
+                class="text-white hover:text-teal-500 md:text-lg px-4 py-3 sm:text-xs"
+                to="searchproject"
                 >Project
             </nuxt-link
             >
             </li>
             <li>
             <nuxt-link
-                class="text-white hover:text-teal-500 text-lg px-4 py-3"
-                to="#"
+                class="text-white hover:text-teal-500 md:text-lg px-4 py-3 sm:text-xs"
+                to="features/find"
                 >Features
             </nuxt-link
             >
             </li>
             <li>
             <nuxt-link
-                class="text-white hover:text-teal-500 text-lg px-4 py-3"
+                class="text-white hover:text-teal-500 md:text-lg md:px-4 py-3 sm:text-xs"
                 to="#"
                 >Success Stories
             </nuxt-link
@@ -33,13 +33,15 @@
             </li>
         </ul>
         <ul
-            class="flex ml-auto items-center mt-2"
+            class="flex ml-auto items-center mt-2 sm:mr-4 xl:mr-0"
             v-if="!this.$store.state.auth.loggedIn"
         >
             <li>
             <nuxt-link
                 to="/register"
-                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full mr-4"
+                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25
+                 text-white font-light lg:w-40 text-center px-6 py-1 lg:text-lg rounded-full mr-4
+                  sm:w-32 sm:text-xs"
             >
                 Sign Up
             </nuxt-link>
@@ -47,14 +49,16 @@
             <li>
             <nuxt-link
                 to="/login"
-                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25 text-white font-light w-40 text-center px-6 py-1 text-lg rounded-full"
+                class="inline-block bg-transparent border-white border hover:bg-white hover:bg-opacity-25
+                 text-white font-light lg:w-40 text-center px-6 py-1 lg:text-lg rounded-full
+                 sm:w-32 sm:text-xs"
             >
                 My Account
             </nuxt-link>
             </li>
         </ul>
         <div class="flex ml-auto" v-else>
-      <div class="dropdown inline-block relative z-10 ">
+      <div class="dropdown inline-block relative block z-10 ">
         <button
           class="bg-transparant text-white font-semibold py-4 px-6 inline-flex items-center"
         >

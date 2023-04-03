@@ -5,16 +5,15 @@
           <Navbar />
         </div>
       </section>
-      <section class="container mx-auto pt-8">
+      <section class="container mx-auto pt-8 sm:px-3 xl:px-0">
         <div class="flex justify-between items-center mb-4">
-          <div class="w-3/4 mr-6">
+          <div class="w-3/4 sm:w-2/3  mr-6 sm:mr-0">
             <h3 class="text-2xl text-gray-900">
               Edit your account detail
             </h3>
           </div>
-          <div class="w-1/4 justify-between text-right">
+          <div class="w-1/4 sm:w-1/3 justify-between text-right">
             <button
-
             >
               <nuxt-link to="/"
                 class="bg-gray-button hover:bg-gray-button text-white font-bold px-4 py-1 rounded inline-flex items-center">
@@ -33,28 +32,28 @@
           <div class="w-full lg:max-w-full lg:flex mb-4 border border-gray-400 bg-white
               rounded">
             <div
-              class="w-1/4 p-8 flex flex-col justify-between leading-normal"
+              class="w-1/4 p-8 sm:p-5 flex flex-col justify-between leading-normal"
             >
-            <div class="relative">
-              <div class="cursor-pointer" @click="$refs.file.click()">
-                <img :src="$axios.defaults.baseURL + '/' + user.data.image_url"
-                  alt="" class=" rounded-full border-white" />
-                <img
-                  src="/icon-avatar-add.svg"
-                  alt=""
-                  class="absolute right-0 bottom-0 pb-2"
+              <div class="relative">
+                <div class="cursor-pointer" @click="$refs.file.click()">
+                  <img :src="$axios.defaults.baseURL + '/' + user.data.image_url"
+                    alt="" class=" rounded-full border-white" />
+                  <img
+                    src="/icon-avatar-add.svg"
+                    alt=""
+                    class="absolute right-0 bottom-0 pb-2"
+                  />
+                </div>
+                <input
+                  type="file"
+                  ref="file"
+                  style="display: none;"
+                  accept="image/*"
+                  @change="onFileChange"
                 />
               </div>
-              <input
-                type="file"
-                ref="file"
-                style="display: none;"
-                accept="image/*"
-                @change="onFileChange"
-              />
             </div>
-            </div>
-            <div
+          <div
               class="w-3/4 p-8 flex flex-col justify-between leading-normal"
             >
               <form class="w-full">
@@ -123,8 +122,6 @@
           </div>
         </div>
       </section>
-      <div class="cta-clip -mt-20"></div>
-      <section class="call-to-action bg-purple-progress pt-64 pb-10"></section>
       <Footer />
     </div>
 </template>

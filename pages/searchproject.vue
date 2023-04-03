@@ -4,7 +4,24 @@
       <Sidebar />
     </div>
     <div class="w-4/5 pl-4">
-      <section class="container mx-auto pt-24" id="projects">
+      <section class="container mx-auto items-right" id="sorting">
+        <div class="w-full mt-5 flex items-right">
+          <p class="text-sm font-semibold text-black mx-4">urutkan</p>
+          <!-- Dropdown menu -->
+          <div class="dropdown inline-block relative">
+              <button class="button-sm bg-transparent text-gray-700 font-semibold py-1 px-4 rounded-full border border-gray-500 inline-flex items-center">
+                <span class="mr-1">Dropdown</span>
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+              </button>
+              <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                <li class="#"><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">One</a></li>
+                <li class="#"><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Two</a></li>
+                <li class="#"><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Three is the magic number</a></li>
+              </ul>
+          </div>
+        </div>
+      </section>
+      <section class="container mx-auto pt-" id="projects">
         <div class="grid grid-cols-3 gap-4 mt-3">
           <div
             v-for="campaign in campaigns.data"
@@ -77,3 +94,9 @@
   },
   }
 </script>
+
+<style scoped>
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+</style>

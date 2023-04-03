@@ -18,6 +18,7 @@
                 v-model="login.email"
                 class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                 placeholder="Write your email address here"
+                required
               />
             </div>
           </div>
@@ -32,6 +33,7 @@
                 v-model="login.password"
                 class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
                 placeholder="Write your password here"
+                required
               />
             </div>
           </div>
@@ -78,7 +80,8 @@ export default {
         this.$auth.setUser(response.data.data)
         console.log(response)
       } catch (err) {
-        console.log(err)
+        // console.log(err)
+        alert('failed to login')
       }
     },
   },

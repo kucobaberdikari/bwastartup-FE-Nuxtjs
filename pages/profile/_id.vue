@@ -5,7 +5,7 @@
             <Navbar />
         </div>
     </section>
-    <section class="container mx-auto pt-8">
+    <section class="container mx-auto pt-8 sm:px-3 xl:px-0">
         <div class="flex mb-6">
             <div class="w-3/4 mr-6">
               <h2 class="text-4xl text-gray-900 mb-2 font-medium capitalize">{{ user.data.name }}  campaigns</h2>
@@ -68,7 +68,7 @@
                 </div>
               </div>
             </div>
-            <div class="w-1/4 ">
+            <div class="w-1/4 mt-12">
                 <div
                   class="bg-white w-full p-5 border border-gray-400 rounded-20 sticky"
                   style="top: 15px;"

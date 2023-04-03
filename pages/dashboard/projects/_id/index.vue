@@ -5,7 +5,7 @@
         <Navbar />
       </div>
     </section>
-    <section class="container mx-auto pt-8">
+    <section class="container mx-auto pt-8 sm:px-3 xl:px-0">
       <div class="flex justify-between items-center">
         <div class="w-full mr-6">
           <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
@@ -82,9 +82,9 @@
           </button>
         </div>
       </div>
-      <div class="grid grid-cols-4 gap-4 -mx-2">
+      <div class="grid xl:grid-cols-4 xl:gap-4 -mx-2 sm:grid-cols-3 sm:gap-3">
         <div
-          class="relative w-full bg-white m-2 p-2 border border-gray-400 rounded"
+          class="relative xl:w-full lg:max-w-xs bg-white m-2 p-2 border border-gray-400 rounded"
           v-for="image in campaign.data.images"
           :key="image.image_url"
         >

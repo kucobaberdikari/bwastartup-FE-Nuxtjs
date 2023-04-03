@@ -5,7 +5,7 @@
         <Navbar />
       </div>
     </section>
-    <section class="container mx-auto pt-8">
+    <section class="container mx-auto pt-8 mb-9 sm:px-3 xl:px-0">
       <div class="flex justify-between items-center mb-6">
         <div class="w-3/4 mr-6">
           <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
@@ -26,14 +26,14 @@
         <div class="w-1/4 text-right">
           <nuxt-link
             to="/dashboard/projects/create"
-            class="bg-orange-button hover:bg-green-button text-white font-bold py-4 px-4 rounded inline-flex items-center"
+            class="bg-orange-button hover:bg-green-button text-white font-bold py-4 lg:px-4 sm:px-1 rounded inline-flex items-center sm:text-xs lg:text-base"
           >
             + Create Campaign
           </nuxt-link>
         </div>
       </div>
       <hr />
-      <div class="block mb-2">
+      <div class="container mb-2">
         <div class="grid grid-cols-2 gap-4">
           <div
             class="w-full lg:max-w-full lg:flex "
@@ -85,8 +85,6 @@
         </div>
       </div>
     </section>
-    <div class="cta-clip -mt-20"></div>
-    <section class="call-to-action bg-purple-progress pt-64 pb-10"></section>
     <Footer />
   </div>
 </template>

@@ -15,7 +15,8 @@
               >
               <input
                 type="text"
-                class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke focus:text-gray-100"
+                class="auth-form focus:outline-none focus:bg-purple-hover focus:shadow-outline focus:border-purple-hover-stroke 
+                focus:text-gray-100 "
                 placeholder="Write Your Name Here"
                 v-model="register.name"
               />

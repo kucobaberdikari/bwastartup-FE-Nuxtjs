@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="flex">
-        <div class="w-full px-56 mb-5">
+        <div class="w-full px-56 mb-5 sm:mt-11 lg:mt-0">
           <img src="/line-step.svg" alt="" class="w-full" />
         </div>
       </div>
@@ -110,7 +110,7 @@
               />
             </figure>
             <div class="item-meta">
-              <h5 class="text-3xl font-medium text-gray-900 mt-5">
+              <h5 class="lg:text-3xl sm:text-base font-medium text-gray-900 mt-5">
 
                 <nuxt-link :to="'projects/' + campaign.id">
                   {{ campaign.name }}

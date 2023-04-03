@@ -5,7 +5,7 @@
         <Navbar/>
       </div>
     </section>
-    <section class="container mx-auto pt-8">
+    <section class="container mx-auto pt-8 sm:px-3 xl:px-0">
       <div class="flex justify-between items-center mb-6">
         <div class="w-3/4 mr-6">
           <h2 class="text-4xl text-gray-900 mb-2 font-medium">Dashboard</h2>
