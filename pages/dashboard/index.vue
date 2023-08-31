@@ -89,7 +89,7 @@
   </div>
 </template>
 
-<script>
+<script> 
 export default {
   middleware: 'auth',
   async asyncData({ $axios, app }) {

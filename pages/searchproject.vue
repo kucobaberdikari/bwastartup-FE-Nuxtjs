@@ -5,8 +5,8 @@
     </div>
     <div class="w-4/5 pl-4">
       <section class="container mx-auto items-right" id="sorting">
-        <div class="w-full mt-5 flex items-right">
-          <p class="text-sm font-semibold text-black mx-4">urutkan</p>
+        <div class="w-full mt-5 flex items-right right-0">
+          <p class="text-md font-semibold text-black mx-4">urutkan</p>
           <!-- Dropdown menu -->
           <div class="dropdown inline-block relative">
               <button class="button-sm bg-transparent text-gray-700 font-semibold py-1 px-4 rounded-full border border-gray-500 inline-flex items-center">
