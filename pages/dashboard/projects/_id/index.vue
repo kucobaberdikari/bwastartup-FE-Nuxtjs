@@ -36,9 +36,9 @@
               <div class="text-gray-900 font-bold text-xl mb-2">
                 {{ campaign.data.name }}
               </div>
-              <p class="text-gray-700 text-base">
+              <!-- <p class="text-gray-700 text-base">
                 {{ campaign.data.short_description }}
-              </p>
+              </p> -->
               <p class="text-sm font-bold flex items-center mb-1 mt-4">
                 Description
               </p>

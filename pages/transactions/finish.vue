@@ -14,7 +14,7 @@
         <div class="p-4  justify-between">
           <p class="capitalize mt-4">order id : {{ $route.query.order_id }} </p>
            <p class="capitalize mt-4">status : {{ $route.query.transaction_status }} </p>
-          <p class="capitalize mt-4">order id : {{ $route.query.order_id }} </p>
+          <p class="capitalize mt-4">amount : Rp {{  new Intl.NumberFormat().format(transaction.data.data.amount) }} </p>
         </div>
          
       </div>
@@ -43,6 +43,14 @@
 <script>
 export default {
   layout: 'success',
+
+  
+ async asyncData({$axios, query}){
+  const order_id = query.order_id;
+  const transaction = await $axios.get('/api/v1/transactions/'+ order_id )
+  console.log(transaction)
+  return { transaction }
+ }
 }
 
 

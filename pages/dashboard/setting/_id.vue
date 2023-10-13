@@ -15,14 +15,14 @@
           <div class="w-1/4 sm:w-1/3 justify-between text-right">
             <button
             >
-              <nuxt-link to="/"
-                class="bg-gray-button hover:bg-gray-button text-white font-bold px-4 py-1 rounded inline-flex items-center">
+               <nuxt-link to="/"
+                class="bg-gray-button hover:bg-gray-button text-white font-bold px-3 py-1 rounded-lg w-24 text-center items-center mr-4">
                 Cancel
               </nuxt-link>
             </button>
             <button
               @click="save"
-              class="bg-purple-button hover:bg-purple-button text-white font-bold px-4 py-1 rounded inline-flex items-center"
+              class="bg-purple-button hover:bg-orange-button text-white font-bold px-auto py-1 rounded-lg w-24 text-center items-center"
             >
               Save
             </button>

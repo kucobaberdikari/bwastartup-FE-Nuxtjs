@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-purple-progress pt-20 pb-10 text-white text-lg">
+    <footer class="bg-purple-progress pt-10 pb-10 text-white text-lg">
         <div class="container mx-auto">
             <div class="sm:flex mb-4">
                 <div class="sm:w-1/2 sm:mt-0 mt-8 h-auto sm:ml-3">

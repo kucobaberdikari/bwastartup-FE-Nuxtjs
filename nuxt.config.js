@@ -16,7 +16,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'bwastartup',
+    title: 'Backer',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -24,15 +24,22 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {           
+        rel:"icon",
+        type:'image/svg+xml',
+        sizes:'16x16',
+        href:'/logo.svg' 
+      },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap' },
+        href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap' 
+      },
       {
         rel:'stylesheet',
         href:'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
         integrity:"sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p",
-        crossorigin:"anonymous"},
+        crossorigin:"anonymous"
+      },
       // { 
       //     rel:'stylesheet',
       //    href:'https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css' 

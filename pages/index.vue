@@ -15,13 +15,12 @@
               Fund the best idea to become <br />
               a real product and be the contributor
             </p>
-            <a
-              href="#projects"
-              class="bg-orange-button hover:bg-green-button text-white font-semibold 
+            <nuxt-link to="/searchproject"
+            class="bg-orange-button hover:bg-green-button text-white font-semibold 
               px-12 py-3 text-xl rounded-full sm:ml-3"
             >
               Find a Project
-            </a>
+            </nuxt-link>
           </div>
           <div class="w-1/2 flex justify-center">
             <img src="/hero-image@2x.png" alt="crowdfunding project" />
@@ -90,9 +89,10 @@
           </h2>
         </div>
         <div class="w-auto mt-5">
-          <a class="text-gray-900 hover:underline text-md font-mediuma sm:mr-3" href=""
-            >View All</a
-          >
+          <nuxt-link to="/searchproject"
+            class="text-gray-900 hover:underline text-md font-mediuma sm:mr-3">
+            View All
+          </nuxt-link>
         </div>
       </div>
       <div class="grid xl:grid-cols-4 gap-4 mt-3 sm:mr-3 sm:grid-cols-3 sm:ml-3">
@@ -102,7 +102,7 @@
           class="card-project w-full p-5 border border-gray-500 rounded-20"
         >
           <div class="item">
-            <figure class="item-image">
+            <figure class="item-image flex justify-center">
               <img
                 :src="$axios.defaults.baseURL + '/' + campaign.image_url"
                 alt=""
@@ -149,6 +149,8 @@
                   params: { id: campaign.id },
                 })
               "
+              id="fund-button"
+              :disabled="!isButtonDisabled"
               class="mt-5 button-cta block w-full bg-orange-button hover:bg-green-button text-white font-semibold px-6 py-2 text-sm rounded-full"
             >
               Fund Now
@@ -210,9 +212,26 @@
 
 <script>
 export default {
+   data (){
+    return {
+      data : {
+        // current_amount : campaigns.data.current_amount,
+        // goal_amount: campaigns.data.goal_amount,
+      }
+    }
+  } ,
   async asyncData({ $axios }) {
-    const campaigns = await $axios.$get('/api/v1/campaigns')
+   try {
+     const campaigns = await $axios.$get('/api/v1/campaigns')
     return { campaigns }
+   } catch (error) {
+      console.error('Error fetching data:', error)
+    }
+  },
+   computed: {
+    isButtonDisabled() {
+      return (this.campaigns.data.current_amount >= this.campaigns.data.goal_amount) == true;
+    },
   },
 }
 </script>
@@ -223,5 +242,8 @@ export default {
   }
   .h-186 {
     max-height: 186px;
+  }
+  #fund-button:disabled {
+    cursor: not-allowed;
   }
 </style>

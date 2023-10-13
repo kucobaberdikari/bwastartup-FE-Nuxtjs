@@ -26,7 +26,7 @@
                     changeImage($axios.defaults.baseURL + '/' + image.image_url)
                   "
                   alt="campaign-images"
-                  class="rounded-20 w-full"
+                  class="rounded-20 w-full "
                 />
               </figure>
             </div>
@@ -166,17 +166,17 @@
         <div class="w-full">
           <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(1)" v-bind:class="{'text-orange-button bg-white': openTab !== 1, 'text-white bg-orange-button': openTab === 1}">
+              <a href="javascript:void()" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(1)" v-bind:class="{'text-orange-button bg-white': openTab !== 1, 'text-white bg-orange-button': openTab === 1}">
                 tentang
               </a>
             </li>
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(2)" v-bind:class="{'text-orange-button bg-white': openTab !== 2, 'text-white bg-orange-button': openTab === 2}">
+              <a href="javascript:void()" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(2)" v-bind:class="{'text-orange-button bg-white': openTab !== 2, 'text-white bg-orange-button': openTab === 2}">
                 kategori
               </a>
             </li>
             <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(3)" v-bind:class="{'text-orange-button bg-white': openTab !== 3, 'text-white bg-orange-button': openTab === 3}">
+              <a href="javascript:void()" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal" v-on:click="toggleTabs(3)" v-bind:class="{'text-orange-button bg-white': openTab !== 3, 'text-white bg-orange-button': openTab === 3}">
                 lokasi
               </a>
             </li>
@@ -219,33 +219,36 @@
     </section>
     <Footer />
     <div v-if="showModal" data-modal-target="large-modal" data-modal-toggle="large-modal" name="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-      <div class="relative w-auto my-6 mx-auto max-w-6xl">
+      <div class="relative w-96 my-6 mx-auto ">
         <!--content-->
         <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
           <!--header-->
           <div class="flex items-end justify-between p-2 rounded-t">
 
-            <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" v-if="showModal" @click="showModal = false">
-                <i class="fal fa-times text-black"></i>
+            <button class="p-1 ml-auto bg-transparent border-0 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" v-if="showModal" @click="showModal = false">
+                <i class="far fa-times fa-lg text-gray-700 "></i>
             </button>
           </div>
           <!--body-->
           <div class="relative p-4 flex-auto">
             <div class="flex justify-between items-center mt-3">
                 <div class="w-1/5 px-1 items-center">
-                  <i class="fab fa-facebook-square text-[2rem] text-blue-900 border-white"></i>
+                  <i class="fab fa-facebook-square text-[2rem] " style="color: #1877f2"></i>
                 </div>
                 <div class="w-1/5 px-1 items-center">
-                  <i class="fab fa-twitter-square text-[2rem] text-blue-600"></i>
+                  <i class="fab fa-twitter-square text-[2rem]" style="color:#1D9BF0"></i>
                 </div>
                 <div class="w-1/5 px-1 items-center">
-                  <i class="fab fa-whatsapp-square text-[2rem] text-green-500"></i>
+                  <i class="fab fa-whatsapp-square text-[2rem]" style="color:#25d366"></i>
                 </div>
                 <div class="w-1/5 px-1 items-center">
-                  <i class="fab fa-linkedin text-blue-400 text-[2rem] "></i>
+                  <i class="fab fa-linkedin text-[2rem]" style="color:#0072b1"></i>
                 </div>
                 <div class="w-1/5 px-1 items-center">
-                  <i class="fas fa-copy text-gray-500 text-[2rem] "></i>
+                  <a :href="link_url" class="text-dark" target="_blank" rel="noopener noreferrer" ref="mylink">
+                    <i class="fas fa-copy text-gray-500 text-[2rem]" ></i>
+                  </a>
+                  
                 </div>
               </div>
           </div>
@@ -304,6 +307,14 @@ export default {
     toggleTabs: function(tabNumber){
       this.openTab = tabNumber
     },
+    copyurl() {
+      var url = this.$refs.mylink;
+      url.innerhtml = window.location.href;
+      console.log(url.innerhtml)
+      url.select();
+      navigator.clipboard.writeText(textToCopy); 
+    
+  },
   },
   mounted() {
     this.default_image =

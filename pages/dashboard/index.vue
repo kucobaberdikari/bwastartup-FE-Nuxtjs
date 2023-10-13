@@ -33,7 +33,9 @@
         </div>
       </div>
       <hr />
-      <div class="container mb-2">
+
+      <!-- new model list -->
+      <!-- <div class="container mb-2">
         <div class="grid grid-cols-2 gap-4">
           <div
             class="w-full lg:max-w-full lg:flex "
@@ -71,17 +73,68 @@
               <div class="flex items-center">
                 <nuxt-link
                   :to="'/dashboard/projects/' + campaign.id"
-                  class="bg-green-button text-white py-2 px-4 rounded">
+                  class="bg-green-button text-white py-2 px-4 rounded hover:border-gray-500">
                   Detail
                 </nuxt-link>
                 <nuxt-link
-                  class="bg-purple-button text-white py-2  mx-3 px-4 rounded"
+                  class="bg-purple-button text-white py-2  mx-3 px-4 rounded hover:border-gray-500"
                   :to="'/dashboard/projects/' + campaign.id+'/edit'">
                   Edit
                 </nuxt-link>
               </div>
             </div>
           </div>
+        </div>
+      </div> -->
+
+      <!-- original list model -->
+
+      <div class="block mb-2">
+        <div
+          class="w-full lg:max-w-full lg:flex mb-4"
+          v-for="campaign in campaigns.data"
+          :key="campaign.id"
+        >
+          <div
+            class="border h-48 lg:h-auto lg:w-64 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+            :style="
+              'background-color: #bbb; background-position: center; background-image: url(\'' +
+              $axios.defaults.baseURL +
+              '/' +
+              campaign.image_url +
+              '\')'
+            "
+          ></div>
+          <nuxt-link
+            :to="'/dashboard/projects/' + campaign.id"
+            class="w-full border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-8 flex flex-col justify-between leading-normal"
+          >
+            <div class="mb-8">
+              <div class="text-gray-900 font-bold text-xl mb-1">
+                {{ campaign.name }}
+              </div>
+              <p class="text-sm text-gray-600 flex items-center mb-2">
+                Rp.
+                {{ new Intl.NumberFormat().format(campaign.goal_amount) }}
+                &middot;
+                {{ ((campaign.current_amount / campaign.goal_amount) * 100).toFixed(0) }}%
+              </p>
+              <p class="text-gray-700 text-base">
+                {{ campaign.short_description }}
+              </p>
+            </div>
+            <div class="flex items-center">
+              <button class="bg-green-button text-white py-2 px-4 rounded">
+                Detail
+              </button>
+
+              <nuxt-link
+                  class="bg-purple-button text-white py-2  mx-3 px-4 rounded hover:border-gray-500"
+                  :to="'/dashboard/projects/' + campaign.id+'/edit'">
+                  Edit
+                </nuxt-link>
+            </div>
+          </nuxt-link>
         </div>
       </div>
     </section>
@@ -92,12 +145,14 @@
 <script> 
 export default {
   middleware: 'auth',
+ 
   async asyncData({ $axios, app }) {
     const campaigns = await $axios.$get(
       '/api/v1/campaigns?user_id=' + app.$auth.user.id
     )
     return { campaigns }
   },
+ 
 }
 </script>
 

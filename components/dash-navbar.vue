@@ -1,37 +1,14 @@
 <template>
-  <header class="flex items-center ">
-    <div style="height:54px" class="md:pr-5 sm:pl-3 sm:pr-3">
-      <nuxt-link class="rounded-full border-none hover:border-gray-400"
+  <header class="flex items-center">
+    <div class="md:pr-5 sm:px-4 h-14">
+      <nuxt-link class="rounded-full  flex flex-grid align-middle"
       to="/">
         <img src="/logo.svg" alt="logo" class="h-full " />
+        <p class="ml-3 text-2xl text-white mt-3">
+          Backer
+        </p>
       </nuxt-link>
     </div>
-    <ul class="flex items-center">
-        <li>
-        <nuxt-link
-            class="text-white hover:text-teal-500 md:text-lg px-4 py-3 sm:text-xs"
-            to="searchproject"
-            >Project
-        </nuxt-link
-        >
-        </li>
-        <li>
-        <nuxt-link
-            class="text-white hover:text-teal-500 md:text-lg px-4 py-3 sm:text-xs"
-            to="features/find"
-            >Features
-        </nuxt-link
-        >
-        </li>
-        <li>
-        <nuxt-link
-            class="text-white hover:text-teal-500 md:text-lg md:px-4 py-3 sm:text-xs"
-            to="#"
-            >Success Stories
-        </nuxt-link
-        >
-        </li>
-    </ul>
     <ul
         class="flex ml-auto items-center mt-2 sm:mr-4 xl:mr-0"
         v-if="!this.$store.state.auth.loggedIn"
